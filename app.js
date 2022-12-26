@@ -1,0 +1,39 @@
+const express = require("express");
+const bodyParser = require("body-parser");
+const path = require("path");
+const db = require('./db/db')
+// sync database model 
+const DcDetailsModel = require('./model/DcDetailsModel');
+
+// routes
+const PageRoutes = require('./routes/routes');
+const DeleteRoute = require('./routes/delete.routes');
+
+// register package
+const app = express();
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.static(path.join(__dirname, "public")));
+app.set("views", "./view");
+app.set("view engine", "ejs");
+
+// register route
+app.get("/", (req, res, next) => {
+    res.render("Insert");
+});
+app.use(PageRoutes);
+app.use(DeleteRoute);
+
+
+
+// database 
+db.sync({alter: true}).then((status) => {
+  console.log('data connected');
+}).catch(error => {
+  console.log('got an error on db connection');
+})
+
+
+// server 
+app.listen(3000, () => {
+    console.log("app started on http://localhost:3000");
+});

@@ -1,0 +1,9 @@
+.nav-item {
+  border-bottom: 1px solid transparent;
+}
+
+.nav-item:hover {
+  border-bottom-color: #484848;
+}
+
+/*# sourceMappingURL=style.css.map */
