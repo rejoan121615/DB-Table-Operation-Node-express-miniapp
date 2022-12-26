@@ -1,0 +1,16 @@
+<%- include('./Partials/header.ejs') %>
+<!-- navbar  -->
+<%- include('Partials/navbar.ejs') %>
+<!-- retrived result data  -->
+<section class="mt-5">
+    <h3 class="text-center my-5">All Records List</h3>
+    <% if (result) { %>
+    <div class="container">
+        <% result.forEach((data) => { %> <%-
+        include('./Partials/detailsResult.ejs', {...data.dataValues}) %> 
+        <% }) %>
+    </div>
+    <% } %>
+</section>
+<!-- page footer  -->
+<%- include('./Partials/footer.ejs') %>

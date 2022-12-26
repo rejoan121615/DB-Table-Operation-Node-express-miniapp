@@ -17,9 +17,8 @@ router.post("/update", (req, res, next) => {
         })
         .catch((error) => {
             console.log("got an error of getting data");
-            res.render("Update", {});
+            res.render("Delete", {});
         });
-    // next()
 });
 
 module.exports = router;

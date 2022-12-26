@@ -1,13 +1,15 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const path = require("path");
-const db = require('./db/db')
-// sync database model 
-const DcDetailsModel = require('./model/DcDetailsModel');
+const db = require("./db/db");
+// sync database model
+const DcDetailsModel = require("./model/DcDetailsModel");
 
 // routes
-const PageRoutes = require('./routes/routes');
-const DeleteRoute = require('./routes/delete.routes');
+const PageRoutes = require("./routes/routes");
+const DeleteRoute = require("./routes/delete.routes");
+const UpdateRoute = require("./routes/update.routes");
+const AllRecordsRoute = require("./routes/allRecords.routes");
 
 // register package
 const app = express();
@@ -22,18 +24,19 @@ app.get("/", (req, res, next) => {
 });
 app.use(PageRoutes);
 app.use(DeleteRoute);
+app.use(UpdateRoute);
+app.use(AllRecordsRoute);
 
+// database
+db.sync({ alter: true })
+    .then((status) => {
+        console.log("data connected");
+    })
+    .catch((error) => {
+        console.log("got an error on db connection");
+    });
 
-
-// database 
-db.sync({alter: true}).then((status) => {
-  console.log('data connected');
-}).catch(error => {
-  console.log('got an error on db connection');
-})
-
-
-// server 
+// server
 app.listen(3000, () => {
     console.log("app started on http://localhost:3000");
 });
