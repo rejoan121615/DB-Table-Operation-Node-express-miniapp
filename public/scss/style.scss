@@ -39,3 +39,6 @@ $border: 1px solid var(--border);
     grid-template-columns: 1fr 1.5fr 2fr 1.5fr repeat(2, 1fr);
 }
 
+.card {
+  cursor: pointer;
+}

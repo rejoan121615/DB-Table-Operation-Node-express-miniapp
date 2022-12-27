@@ -26,6 +26,7 @@ app.get("/", (req, res, next) => {
             class: "alert-success",
             message: "Got an eror ",
         },
+        result: []
     });
 });
 app.use(InsertRoute);

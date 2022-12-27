@@ -1,14 +1,34 @@
-<section>
-  <% if () %> 
-</section>
-
-
-<div class="card">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
-  </div>
+<div class="col mb-3 mb-sm-0">
+    <div class="card">
+        <div class="card-body">
+            <div class="mb-3">
+                <h6 class="card-title text-capitalize mb-1">visys dc id :</h6>
+                <p class="card-text"><%= data.dc_id %></p>
+            </div>
+            <div class="mb-3">
+                <h6 class="card-title text-capitalize mb-1">
+                    visys dc location :
+                </h6>
+                <p class="card-text"><%= data.dc_location %></p>
+            </div>
+            <div class="mb-3">
+                <h6 class="card-title text-capitalize mb-1">visys dc url :</h6>
+                <p class="card-text"><%= data.dc_url %></p>
+            </div>
+            <div class="mb-3">
+                <h6 class="card-title text-capitalize mb-1">visys dc port :</h6>
+                <p class="card-text"><%= data.dc_port %></p>
+            </div>
+            <div class="mb-3">
+                <h6 class="card-title text-capitalize mb-1">
+                    visys dc status :
+                </h6>
+                <p class="card-text"><%= data.dc_status %></p>
+            </div>
+            <div class="mb-3">
+                <h6 class="card-title text-capitalize mb-1">visys dc flag :</h6>
+                <p class="card-text"><%= data.dc_flag %></p>
+            </div>
+        </div>
+    </div>
 </div>

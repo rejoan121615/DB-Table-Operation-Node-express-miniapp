@@ -4,8 +4,30 @@
 <!-- alert box  -->
 <% if (alert.status) { %> <%- include('./Partials/Alert.ejs', {...alert}) %> <%
 } %>
+<!-- insert tweak button  -->
+<section class=" mt-5 ">
+    <div class="container">
+        <button id="insertFormTweak" class="btn btn-info">
+            Insert Visys Shared Details
+        </button>
+    </div>
+</section>
 <!-- form input  -->
-<%- include('./Partials/InsertData.ejs') %> 
+<%- include('./Partials/InsertData.ejs') %>
+<!-- data output  -->
+<% if (result.length) { %>
+<section class="mt-5">
+    <h3 class="text-center my-5">New Inserted data</h3>
+    <div class="container">
+        <div
+            class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 mb-3"
+        >
+            <% result.forEach((data) => { %> <%-
+            include('./Partials/details.ejs', {data: data}) %> <% }) %>
+        </div>
+    </div>
+</section>
+<% } %>
 <!-- footer  -->
 <%- include('./Partials/footer.ejs') %>
 <!-- js link  -->

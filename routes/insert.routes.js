@@ -5,6 +5,7 @@ const router = Router();
 // insert data
 router.get("/insert", (req, res, next) => {
     res.render("insert", {
+        result: [],
         alert: {
             status: false,
             class: "",
@@ -23,7 +24,9 @@ router.post("/insert", (req, res, next) => {
         dc_flag: flag,
     })
         .then((data) => {
+            console.log(data);
             res.render("Insert", {
+                result: [data.dataValues],
                 alert: {
                     status: true,
                     class: "alert-success",
@@ -34,6 +37,7 @@ router.post("/insert", (req, res, next) => {
         .catch((error) => {
             console.log("got an error on data creation", error);
             res.render("Insert", {
+                result: [],
                 alert: {
                     status: false,
                     class: "alert-danger",

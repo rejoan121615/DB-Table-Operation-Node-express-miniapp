@@ -34,4 +34,8 @@
   border-bottom: none;
 }
 
+.card {
+  cursor: pointer;
+}
+
 /*# sourceMappingURL=style.css.map */
