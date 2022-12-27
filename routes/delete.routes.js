@@ -2,24 +2,67 @@ const { Router } = require("express");
 const DcDetailsModel = require("../model/DcDetailsModel");
 const router = Router();
 
-// delete data
+// search data
 router.get("/delete", (req, res, next) => {
     res.render("Delete", { result: false });
 });
 
-// search delete search
+// search data
 router.post("/delete", (req, res, next) => {
     const { id, location } = req.body;
     DcDetailsModel.findOne({ where: { dc_id: id, dc_location: location } })
         .then((data) => {
-            console.log(data.dataValues);
-            res.render("Delete", { result: data.dataValues });
+            res.render("Delete", {
+                result: data.dataValues,
+                alert: {
+                    status: true,
+                    message: "Delete successfully",
+                    class: "alert-success",
+                },
+            });
         })
         .catch((error) => {
             console.log("got an error of getting data");
-            res.render('Delete', {})
+            res.render("Delete", {
+                result: false,
+                alert: {
+                    status: true,
+                    message: "Delete successfully",
+                    class: "alert-success",
+                },
+            });
         });
-        // next()
+    // next()
+});
+
+// delete a product
+router.get("/delete/:prodId", (req, res, next) => {
+    const prodId = req.params.prodId;
+    DcDetailsModel.findOne({
+        where: {
+            dc_id: prodId,
+        },
+    })
+        .then((data) => {
+            data.destroy();
+            res.render("Delete", {
+                result: false,
+                alert: {
+                    status: true,
+                    message: "Delete successfully",
+                    class: "alert-success",
+                },
+            });
+        })
+        .catch((error) => {
+            res.render("Delete", {
+                alert: {
+                    status: true,
+                    message: "Delete successfully",
+                    class: "alert-success",
+                },
+            });
+        });
 });
 
 module.exports = router;

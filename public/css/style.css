@@ -1,3 +1,7 @@
+:root {
+  --border: #ced4da;
+}
+
 .nav-item {
   border-bottom: 1px solid transparent;
 }
@@ -7,7 +11,27 @@
 }
 
 .alert {
-  min-width: 500px;
+  width: 100%;
+}
+
+@media screen and (min-width: 1800px) {
+  .container {
+    max-width: 1750px;
+  }
+}
+.info-table {
+  border-radius: 5px;
+  border: 1px solid var(--border);
+}
+
+.info-table > div {
+  padding: 15px;
+  border-bottom: 1px solid var(--border);
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 2fr 1.5fr repeat(2, 1fr);
+}
+.info-table > div:last-child {
+  border-bottom: none;
 }
 
 /*# sourceMappingURL=style.css.map */

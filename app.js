@@ -6,7 +6,7 @@ const db = require("./db/db");
 const DcDetailsModel = require("./model/DcDetailsModel");
 
 // routes
-const PageRoutes = require("./routes/routes");
+const InsertRoute = require("./routes/insert.routes");
 const DeleteRoute = require("./routes/delete.routes");
 const UpdateRoute = require("./routes/update.routes");
 const AllRecordsRoute = require("./routes/allRecords.routes");
@@ -22,13 +22,13 @@ app.set("view engine", "ejs");
 app.get("/", (req, res, next) => {
     res.render("Insert", {
         alert: {
-            status: true,
+            status: false,
             class: "alert-success",
             message: "Got an eror ",
         },
     });
 });
-app.use(PageRoutes);
+app.use(InsertRoute);
 app.use(DeleteRoute);
 app.use(UpdateRoute);
 app.use(AllRecordsRoute);

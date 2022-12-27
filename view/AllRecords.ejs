@@ -4,12 +4,14 @@
 <!-- retrived result data  -->
 <section class="mt-5">
     <h3 class="text-center my-5">All Records List</h3>
-    <% if (result) { %>
+    <% if (result.length) { %>
     <div class="container">
         <% result.forEach((data) => { %> <%-
         include('./Partials/detailsResult.ejs', {...data.dataValues}) %> 
         <% }) %>
     </div>
+    <% } else { %>
+        <h6 class=" text-center ">No data avaialble please insert a data</h6>
     <% } %>
 </section>
 <!-- page footer  -->

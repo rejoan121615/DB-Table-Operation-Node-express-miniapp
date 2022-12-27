@@ -6,13 +6,20 @@ const router = Router();
 router.get("/all-records", (req, res, next) => {
     DcDetailsModel.findAll()
         .then((data) => {
-            console.log(data[0].dataValues);
-            res.render("allRecords", { result: data });
+            return res.render("allRecords", {
+                result: data,
+                alert: {
+                    status: true,
+                    message: "Delete successfully",
+                    class: "alert-success",
+                },
+            });
         })
         .catch((error) => {
             console.log("got an error on data load");
             next();
         });
+    // res.render("allRecords", { result: [] });
 });
 
 module.exports = router;

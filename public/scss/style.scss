@@ -1,11 +1,41 @@
+:root {
+  --border: #ced4da;
+}
+
+
 .nav-item {
-  border-bottom: 1px solid transparent;
+    border-bottom: 1px solid transparent;
 }
 .nav-item:hover {
-  border-bottom-color: #484848;
+    border-bottom-color: #484848;
 }
-
 
 .alert {
-  min-width: 500px;
+    // min-width: 500px;
+    width: 100%;
 }
+
+@media screen and (min-width: 1800px) {
+    .container {
+        max-width: 1750px;
+    }
+}
+
+$border: 1px solid var(--border);
+
+.info-table {
+  border-radius: 5px;
+  border: 1px solid var(--border);
+}
+
+
+.info-table > div {
+  padding: 15px;
+  border-bottom: $border;
+  &:last-child {
+    border-bottom: none;
+  }
+    display: grid;
+    grid-template-columns: 1fr 1.5fr 2fr 1.5fr repeat(2, 1fr);
+}
+

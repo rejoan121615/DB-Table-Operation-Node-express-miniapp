@@ -2,7 +2,8 @@
 <!-- navbar  -->
 <%- include('Partials/navbar.ejs') %>
 <!-- alert box  -->
-<% if (alert) { %> <%- include('./Partials/Alert.ejs', {...alert}) %> <% } %>
+<% if (alert.status) { %> <%- include('./Partials/Alert.ejs', {...alert}) %> <%
+} %>
 <!-- form input  -->
 <section class="mt-5">
     <div class="container">
@@ -60,5 +61,10 @@
         </form>
     </div>
 </section>
-<!-- js link  -->
 <%- include('./Partials/footer.ejs') %>
+<!-- js link  -->
+<script>
+    if (window.history.replaceState) {
+        window.history.replaceState(null, null, window.location.href);
+    }
+</script>

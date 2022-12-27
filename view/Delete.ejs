@@ -26,7 +26,7 @@
                     <input class="form-control" type="text" name="location" />
                 </div>
                 <!-- submit button  -->
-                <div class="col d-flex align-items-end ">
+                <div class="col d-flex align-items-end">
                     <button class="btn btn-primary" type="submit">
                         Search Data
                     </button>
@@ -38,10 +38,60 @@
 <!-- retrived result data  -->
 <% if (result) { %>
 <section class="mt-5">
+    <div class="container mb-5">
+        <h1>Your searched data</h1>
+    </div>
     <div class="container">
-        <%- include('./Partials/detailsResult.ejs', {...result}) %> 
+        <div class="info-table">
+            <!-- title  -->
+            <div class="info-row-title">
+                <!-- id  -->
+                <div class="">
+                    <h6 class="mb-2 text-capitalize" for="id">visys dc id</h6>
+                </div>
+                <!-- location  -->
+                <div class="">
+                    <h6 class="mb-2 form-label text-capitalize">
+                        visys dc location
+                    </h6>
+                </div>
+                <!-- url  -->
+                <div class="">
+                    <h6 class="mb-2 form-label text-capitalize">
+                        visys dc url
+                    </h6>
+                </div>
+                <!-- port  -->
+                <div class="">
+                    <h6 class="mb-2 form-label text-capitalize">
+                        visys dc port
+                    </h6>
+                </div>
+                <!-- status  -->
+                <div class="">
+                    <h6 class="mb-2 form-label text-capitalize">
+                        visys dc status
+                    </h6>
+                </div>
+                <!-- flag  -->
+                <div class="">
+                    <h6 class="mb-2 form-label text-capitalize" for="flag">
+                        visys dc flag
+                    </h6>
+                </div>
+            </div>
+            <!-- result  -->
+            <%- include('./Partials/detailsResult.ejs', {...result}) %>
+        </div>
+        <!-- delete btn  -->
+        <div class="mt-4 text-center">
+            <a href="/delete/<%= result.dc_id %> " class="btn btn-danger"
+                >Delete This Data</a
+            >
+        </div>
     </div>
 </section>
 <% } %>
+
 <!-- page footer  -->
 <%- include('./Partials/footer.ejs') %>
