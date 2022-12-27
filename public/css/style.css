@@ -6,4 +6,8 @@
   border-bottom-color: #484848;
 }
 
+.alert {
+  min-width: 500px;
+}
+
 /*# sourceMappingURL=style.css.map */

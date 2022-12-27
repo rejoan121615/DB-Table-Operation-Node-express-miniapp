@@ -1,6 +1,8 @@
 <%- include('./Partials/header.ejs') %>
 <!-- navbar  -->
 <%- include('Partials/navbar.ejs') %>
+<!-- alert box  -->
+<% if (alert) { %> <%- include('./Partials/Alert.ejs', {...alert}) %> <% } %>
 <!-- form input  -->
 <section class="mt-5">
     <div class="container">

@@ -20,7 +20,13 @@ app.set("view engine", "ejs");
 
 // register route
 app.get("/", (req, res, next) => {
-    res.render("Insert");
+    res.render("Insert", {
+        alert: {
+            status: true,
+            class: "alert-success",
+            message: "Got an eror ",
+        },
+    });
 });
 app.use(PageRoutes);
 app.use(DeleteRoute);
