@@ -44,15 +44,10 @@ router.get("/delete/:prodId", (req, res, next) => {
         },
     })
         .then((data) => {
-            data.destroy();
-            res.render("Delete", {
-                result: false,
-                alert: {
-                    status: true,
-                    message: "Delete successfully",
-                    class: "alert-success",
-                },
-            });
+            data.destroy().then(() => {
+                res.redirect('/delete');
+                next();
+            })
         })
         .catch((error) => {
             res.render("Delete", {
@@ -64,5 +59,8 @@ router.get("/delete/:prodId", (req, res, next) => {
             });
         });
 });
+
+// router redirect 
+
 
 module.exports = router;
