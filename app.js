@@ -20,14 +20,7 @@ app.set("view engine", "ejs");
 
 // register route
 app.get("/", (req, res, next) => {
-    res.render("Insert", {
-        alert: {
-            status: false,
-            class: "alert-success",
-            message: "Got an eror ",
-        },
-        result: []
-    });
+    res.redirect("/insert");
 });
 app.use(InsertRoute);
 app.use(DeleteRoute);
