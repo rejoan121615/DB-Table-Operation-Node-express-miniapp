@@ -5,7 +5,7 @@
 <% if (alert.status) { %> <%- include('./Partials/Alert.ejs', {...alert}) %> <%
 } %>
 <!-- insert tweak button  -->
-<section class=" mt-5 ">
+<section class="mt-5">
     <div class="container">
         <button id="insertFormTweak" class="btn btn-info">
             Insert Visys Shared Details
@@ -13,7 +13,8 @@
     </div>
 </section>
 <!-- form input  -->
-<%- include('./Partials/InsertData.ejs') %>
+<%- include('./Partials/dcDetailsInsert.ejs') %> <%-
+include('./Partials/sharedDetailsInsert.ejs') %>
 <!-- data output  -->
 <% if (result.length) { %>
 <section class="mt-5">
