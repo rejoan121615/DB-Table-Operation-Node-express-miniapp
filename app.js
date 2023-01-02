@@ -1,9 +1,9 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const path = require("path");
-const db = require("./db/db");
+// const db = require("./db/db");
 // sync database model
-const DcDetailsModel = require("./model/DcDetailsModel");
+// const DcDetailsModel = require("./model/DcDetailsModel");
 
 // routes
 const InsertRoute = require("./routes/insert.routes");
@@ -15,12 +15,13 @@ const AllRecordsRoute = require("./routes/allRecords.routes");
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
-app.set("views", "./view");
+app.set("views", "./view/pages");
 app.set("view engine", "ejs");
 
 // register route
 app.get("/", (req, res, next) => {
-    res.redirect("/insert");
+    // res.redirect("/insert");
+    res.render('Home')
 });
 app.use(InsertRoute);
 app.use(DeleteRoute);
@@ -28,13 +29,13 @@ app.use(UpdateRoute);
 app.use(AllRecordsRoute);
 
 // database
-db.sync({ alter: true })
-    .then((status) => {
-        console.log("data connected");
-    })
-    .catch((error) => {
-        console.log("got an error on db connection");
-    });
+// db.sync({ alter: true })
+//     .then((status) => {
+//         console.log("data connected");
+//     })
+//     .catch((error) => {
+//         console.log("got an error on db connection");
+//     });
 
 // server
 app.listen(3000, () => {

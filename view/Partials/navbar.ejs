@@ -1,28 +1,97 @@
-        <header>
-            <nav class="navbar border-bottom border-secondary bg-body-tertiary">
-                <div class="container justify-content-center">
-                    <ul class="navbar-nav mb-lg-0 flex-row">
-                        <li class="nav-item px-3">
-                            <a class="nav-link text-black active" href="/insert"
-                                >Insert Data</a
-                            >
-                        </li>
-                        <li class="nav-item px-3">
-                            <a class="nav-link text-black active" href="/delete"
-                                >Delete Data</a
-                            >
-                        </li>
-                        <li class="nav-item px-3">
-                            <a class="nav-link text-black active" href="/update"
-                                >Update Data</a
-                            >
-                        </li>
-                        <li class="nav-item px-3">
-                            <a class="nav-link text-black active" href="/all-records"
-                                >Report (All Data) </a
-                            >
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </header>
+<header>
+    <div class="container">
+        <nav>
+            <!-- brand  -->
+            <a href="/home" class="brand">
+                <h1>Visys</h1>
+            </a>
+            <!-- navigation  -->
+            <ul class="nav">
+                <!-- nav items  -->
+                <li class="nav-item active">
+                    <a href="/" class="nav-link">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 26 20"
+                        >
+                            <path
+                                fill="#FEFAE0"
+                                d="m12 5-8 7v7a1 1 0 0 0 1 0h5v-4a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v4h5a1 1 0 0 0 1 0v-7l-8-7a1 1 0 0 0-1 0Zm13 5-4-3V1a1 1 0 0 0 0-1h-3a1 1 0 0 0 0 1v3l-4-4a2 2 0 0 0-3 0L0 10l1 2a1 1 0 0 0 1 0l10-9a1 1 0 0 1 1 0l10 9a1 1 0 0 0 1 0l1-2Z"
+                            />
+                        </svg>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <!-- nav items  -->
+                <li class="nav-item">
+                    <a href="/insert" class="nav-link">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 19 20"
+                        >
+                            <path
+                                fill="#FEFAE0"
+                                d="M12 17a4 4 0 0 1 4-4V6l-6-6H3a2 2 0 0 0-3 3v15a3 3 0 0 0 3 2h10a4 4 0 0 1-1-3ZM10 1l5 6h-3a3 3 0 0 1-2-3V1Zm-5 9h4v1H5a1 1 0 0 1 0-1Zm0 2h7a1 1 0 0 1 0 1H5a1 1 0 0 1 0-1Zm6 3H5a1 1 0 0 1 0-1h6a1 1 0 0 1 0 1Zm5-1a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm1 4a1 1 0 0 1-1 0h-1a1 1 0 0 1 0-1h1v-1a1 1 0 0 1 1 0v1a1 1 0 0 1 0 1Z"
+                            />
+                        </svg>
+                        <span>Insert</span>
+                    </a>
+                </li>
+                <!-- nav items  -->
+                <li class="nav-item">
+                    <a href="/edit" class="nav-link">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 22 20"
+                        >
+                            <path
+                                fill="#FEFAE0"
+                                d="m22 9-1-1h-1V6h-1a2 2 0 0 0-1 0l-1 1v11l1 1v1h1v-1l1-1v-8h1v1h1V9Zm-3-2v2h-1V7h1Zm0 11h-1v-8h1v8ZM3 0 1 1 0 3v15l1 1 2 1h10l2-1V6L9 0H3Zm2 10h4l-1 1H5v-1H4h1Zm5 5H5v-1H4h7l-1 1Zm0-2H5v-1H4h7l-1 1Zm1-6L9 6 8 4V1l6 6h-3Z"
+                            />
+                        </svg>
+                        <span>Edit</span>
+                    </a>
+                </li>
+                <!-- nav items  -->
+                <li class="nav-item">
+                    <a href="/delete" class="nav-link">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 19 20"
+                        >
+                            <path
+                                fill="#FEFAE0"
+                                d="M16 14a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm1 4v1a1 1 0 0 1 0-1h-2v-2h2v2Z"
+                            />
+                            <path
+                                fill="#FEFAE0"
+                                d="M12 17a4 4 0 0 1 4-4V6l-6-6H3a2 2 0 0 0-3 3v15a3 3 0 0 0 3 2h10a4 4 0 0 1-1-3ZM10 1l5 6h-3a3 3 0 0 1-2-3V1Zm-5 9h4v1H5a1 1 0 0 1 0-1Zm0 2h7a1 1 0 0 1 0 1H5a1 1 0 0 1 0-1Zm6 3H5a1 1 0 0 1 0-1h6a1 1 0 0 1 0 1Z"
+                            />
+                        </svg>
+                        <span>Delete</span>
+                    </a>
+                </li>
+                <!-- nav items  -->
+                <li class="nav-item">
+                    <a href="/reports" class="nav-link">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 16 20"
+                        >
+                            <path
+                                fill="#FEFAE0"
+                                d="M4 11h2v1H4v-1Zm3 3h2v-1H7v1Zm-3 2h2v-1H4v1Zm0-2h2v-1H4v1Zm3-2h2v-1H7v1Zm0 4h2v-1H7v1Zm9-10v12a3 3 0 0 1-2 2H3a3 3 0 0 1-3-2V3a2 2 0 0 1 3-3h7l6 6Zm-3 4H3v7h10v-7Zm2-3-5-6v3a3 3 0 0 0 2 3h3Zm-5 9h2v-1h-2v1Zm0-4h2v-1h-2v1Zm0 2h2v-1h-2v1Z"
+                            />
+                        </svg>
+                        <span>Reports</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
