@@ -247,6 +247,13 @@ main .container .btn-wrap {
   row-gap: 20px;
   margin-bottom: 40px;
 }
+.user-form form .form-type {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  display: none;
+}
 
 .recent-added {
   margin-top: 80px;

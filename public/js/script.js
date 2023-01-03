@@ -84,9 +84,9 @@ Array.from(allNav).map((item) => {
 // form validation
 function FormValidation() {
     const activeForm = document.querySelector("form.active");
-    const inputList = activeForm.querySelectorAll(".input-list input");
-    const submitBtn = activeForm.querySelector("input[type=submit]");
-    const btnTxt = submitBtn.value;
+    const inputList = activeForm?.querySelectorAll(".input-list input");
+    const submitBtn = activeForm?.querySelector("input[type=submit]");
+    const btnTxt = submitBtn?.value;
 
     // check validation if not fil disable input
     function checkValidation() {
@@ -106,17 +106,6 @@ function FormValidation() {
 
     Array.from(inputList).map((input) => {
         input.onkeyup = function () {
-            // validate input
-            // const invalidInput = Array.from(inputList).filter((field) => {
-            //     return !field.value.length;
-            // });
-            // if (!invalidInput.length) {
-            //     submitBtn.disabled = false;
-            //     submitBtn.value = btnTxt;
-            // } else {
-            //     submitBtn.disabled = true;
-            //     submitBtn.value = "Fill out the input first";
-            // }
             checkValidation();
         };
     });

@@ -1,5 +1,5 @@
 const { Router } = require("express");
-const DcDetailsModel = require("../model/DcDetailsModel");
+const DcDetailsModel = require("../model/DcModel");
 const router = Router();
 
 // delete data

@@ -1,5 +1,5 @@
 const { Router } = require("express");
-const DcDetailsModel = require("../model/DcDetailsModel");
+const DcDetailsModel = require("../model/DcModel");
 const router = Router();
 
 // search data
@@ -45,9 +45,9 @@ router.get("/delete/:prodId", (req, res, next) => {
     })
         .then((data) => {
             data.destroy().then(() => {
-                res.redirect('/delete');
+                res.redirect("/delete");
                 next();
-            })
+            });
         })
         .catch((error) => {
             res.render("Delete", {
@@ -60,7 +60,6 @@ router.get("/delete/:prodId", (req, res, next) => {
         });
 });
 
-// router redirect 
-
+// router redirect
 
 module.exports = router;

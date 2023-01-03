@@ -1,9 +1,9 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const path = require("path");
-// const db = require("./db/db");
+const db = require("./db/db");
 // sync database model
-// const DcDetailsModel = require("./model/DcDetailsModel");
+const DetailsModel = require('./model/DetailsModel');
 
 // routes
 const InsertRoute = require("./routes/insert.routes");
@@ -29,13 +29,13 @@ app.use(UpdateRoute);
 app.use(AllRecordsRoute);
 
 // database
-// db.sync({ alter: true })
-//     .then((status) => {
-//         console.log("data connected");
-//     })
-//     .catch((error) => {
-//         console.log("got an error on db connection");
-//     });
+db.sync({ alter: true })
+    .then((status) => {
+        console.log("data connected");
+    })
+    .catch((error) => {
+        console.log("got an error on db connection");
+    });
 
 // server
 app.listen(3000, () => {
