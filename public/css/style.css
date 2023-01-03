@@ -157,7 +157,7 @@ main .container .btn-wrap {
   margin-top: 25px;
 }
 
-.user-form, .sec-title-wrap, .table-control {
+.recent-added, .user-form, .sec-title-wrap, .table-control {
   display: grid;
   grid-template-columns: 300px 1fr;
 }
@@ -226,13 +226,17 @@ main .container .btn-wrap {
 }
 
 .recent-added {
-  margin-top: 60px;
+  margin-top: 80px;
   margin-bottom: 60px;
 }
-.recent-added p {
+.recent-added > div {
+  grid-column-start: 2;
+}
+.recent-added p.section-title {
   text-align: center;
   text-transform: capitalize;
   color: #bc6c25;
+  margin-top: 0px;
 }
 
 .card-list {
@@ -260,6 +264,9 @@ main .container .btn-wrap {
 }
 .card .c-head p {
   font-size: 20px;
+  text-align: center;
+  font-weight: 500;
+  color: #bc6c25;
 }
 .card .c-body {
   padding-top: 15px;
@@ -270,6 +277,7 @@ main .container .btn-wrap {
   padding: 10px 25px;
   display: grid;
   grid-template-columns: 120px auto;
+  color: #bc6c25;
 }
 .card .c-body .c-item p {
   text-align: left;

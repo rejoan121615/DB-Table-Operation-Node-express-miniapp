@@ -278,12 +278,17 @@ main {
 
 // recent added ---------------------
 .recent-added {
-    margin-top: 60px;
+    margin-top: 80px;
     margin-bottom: 60px;
-    p {
+    @extend %grid-sidebar;
+    & > div {
+        grid-column-start: 2;
+    }
+    p.section-title {
         text-align: center;
         text-transform: capitalize;
         color: $c-deep-org;
+        margin-top: 0px;
     }
 }
 
@@ -310,6 +315,9 @@ main {
         border-bottom: 1px solid $c-deep-org;
         p {
             font-size: $f-lg;
+            text-align: center;
+            font-weight: 500;
+            color: $c-deep-org;
         }
     }
 
@@ -321,6 +329,7 @@ main {
             padding: 10px 25px;
             display: grid;
             grid-template-columns: 120px auto;
+            color: $c-deep-org;
             p {
                 text-align: left;
                 &:first-child {
