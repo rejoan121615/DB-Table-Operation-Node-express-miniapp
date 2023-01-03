@@ -43,6 +43,7 @@ function UpdateFormBtn(condition) {
 
 ctrlBtn.map((btn) => {
     btn.onclick = function () {
+        // control btn function
         const clickedAttr = btn.getAttribute("data-btn-name");
         switch (clickedAttr) {
             case "dc":
@@ -58,6 +59,8 @@ ctrlBtn.map((btn) => {
                 UpdateFormBtn(clickedAttr);
                 break;
         }
+        // form validation
+        FormValidation();
     };
 });
 
@@ -70,3 +73,53 @@ Array.from(allNav).map((item) => {
         item.classList.remove("active");
     }
 });
+// disable submit btn
+// const submitBtns = document.querySelectorAll("input[type=submit]");
+// Array.from(submitBtns).map((btn) => {
+//     btn.onclick = function (e) {
+//         e.preventDefault();
+//     };
+// });
+
+// form validation
+function FormValidation() {
+    const activeForm = document.querySelector("form.active");
+    const inputList = activeForm.querySelectorAll(".input-list input");
+    const submitBtn = activeForm.querySelector("input[type=submit]");
+    const btnTxt = submitBtn.value;
+
+    // check validation if not fil disable input
+    function checkValidation() {
+        const invalidInput = Array.from(inputList).filter((field) => {
+            return !field.value.length;
+        });
+        if (!invalidInput.length) {
+            submitBtn.disabled = false;
+            submitBtn.value = btnTxt;
+        } else {
+            submitBtn.disabled = true;
+            submitBtn.value = "Fill out the input first";
+        }
+    }
+
+    checkValidation();
+
+    Array.from(inputList).map((input) => {
+        input.onkeyup = function () {
+            // validate input
+            // const invalidInput = Array.from(inputList).filter((field) => {
+            //     return !field.value.length;
+            // });
+            // if (!invalidInput.length) {
+            //     submitBtn.disabled = false;
+            //     submitBtn.value = btnTxt;
+            // } else {
+            //     submitBtn.disabled = true;
+            //     submitBtn.value = "Fill out the input first";
+            // }
+            checkValidation();
+        };
+    });
+}
+
+FormValidation();

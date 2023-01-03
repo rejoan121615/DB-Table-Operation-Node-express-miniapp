@@ -227,6 +227,9 @@ main .container .btn-wrap {
   width: 100%;
   cursor: pointer;
 }
+.submit-wrap input:disabled {
+  opacity: 0.5;
+}
 
 .user-form {
   margin-top: 60px;

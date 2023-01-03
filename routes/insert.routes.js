@@ -7,6 +7,8 @@ router.get("/insert", (req, res, next) => {
     res.render("insert");
 });
 router.post("/insert", (req, res, next) => {
+    console.log(req.body)
+    res.render("insert");
     // const { id, location, url, port, status, flag } = req.body;
     // DcDetailsModel.create({
     //     dc_id: id,
