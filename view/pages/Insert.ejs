@@ -9,18 +9,18 @@
             <p class="min-sec-title">Select Record Container :</p>
             <!-- button list  -->
             <div class="btn-wrap">
-                <button class="active">visys details</button>
-                <button>visys dc details</button>
-                <button>visys shared details</button>
+                <button data-btn-name="details">visys details</button>
+                <button data-btn-name="dc">visys dc details</button>
+                <button data-btn-name="shared">visys shared details</button>
             </div>
         </div>
         <!-- data form  -->
         <div class="user-form">
             <p class="min-sec-title">Input your data:</p>
             <div class="form-wrap">
-                <%- include('../partials/forms/detailsForm.ejs') %> 
-                <%- include('../partials/forms/detailsDcForm.ejs') %> 
-                <%- include('../partials/forms/detailsSharedForm.ejs') %> 
+                <%- include('../partials/forms/detailsForm.ejs') %> <%-
+                include('../partials/forms/detailsDcForm.ejs') %> <%-
+                include('../partials/forms/detailsSharedForm.ejs') %>
             </div>
         </div>
         <!-- recent added  -->

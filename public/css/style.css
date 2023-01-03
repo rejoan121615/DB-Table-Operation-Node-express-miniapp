@@ -217,6 +217,12 @@ main .container .btn-wrap {
 .user-form {
   margin-top: 60px;
 }
+.user-form form {
+  display: none;
+}
+.user-form form.active {
+  display: block;
+}
 .user-form form .input-list {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

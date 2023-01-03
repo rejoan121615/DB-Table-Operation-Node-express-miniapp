@@ -266,6 +266,10 @@ main {
     @extend %grid-sidebar;
     margin-top: 60px;
     form {
+        display: none;
+        &.active {
+            display: block;
+        }
         .input-list {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
