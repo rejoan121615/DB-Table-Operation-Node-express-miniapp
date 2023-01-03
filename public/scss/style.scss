@@ -38,6 +38,8 @@ footer {
 
 section {
     width: 100%;
+    margin-top: 100px;
+    margin-bottom: 100px;
 }
 
 a,
@@ -88,7 +90,6 @@ p {
     text-align: center;
     font-size: $f-xxl;
     color: $c-light-org;
-    padding-top: 35px;
 }
 
 .min-sec-title {
@@ -302,15 +303,12 @@ main {
 
 .card-list {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 25px;
     margin-top: 30px;
     align-items: flex-start;
     .card {
         grid-column: span 2;
-    }
-    .shared-card {
-        grid-column: span 3;
     }
 }
 
@@ -318,9 +316,11 @@ main {
     border: 1px solid $c-deep-org;
     border-radius: 10px;
     min-width: 300px;
+    overflow: hidden;
     .c-head {
         padding: 20px;
         border-bottom: 1px solid $c-deep-org;
+        background-color: #606c3869;
         p {
             font-size: $f-lg;
             text-align: center;
@@ -332,6 +332,7 @@ main {
     .c-body {
         padding-top: 15px;
         padding-bottom: 15px;
+        background-color: $c-deep-oliv;
         .c-item {
             width: 100%;
             padding: 10px 25px;
@@ -358,4 +359,11 @@ main {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
     }
+}
+
+
+
+// record list 
+.report-list {
+    margin-top: 60px;
 }
