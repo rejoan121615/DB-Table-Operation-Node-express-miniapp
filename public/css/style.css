@@ -6,10 +6,23 @@
   font-family: "Roboto", sans-serif;
 }
 
+body {
+  display: flex;
+  justify-content: space-between;
+  flex-flow: column wrap;
+  align-items: center;
+  min-height: 100vh;
+}
+
 header,
 footer {
   background-color: #1a0061;
   height: 80px;
+  width: 100%;
+}
+
+section {
+  width: 100%;
 }
 
 a,

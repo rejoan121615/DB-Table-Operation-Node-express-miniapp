@@ -1,0 +1,13 @@
+<div class="sec-title-wrap">
+    <h1 class="section-title"><%= title %> </h1>
+</div>
+<!-- control btn list  -->
+<%- include('./controlBtns.ejs', {title: 'Select record\'s container:'}) %> 
+<!-- data form  -->
+<div class="user-form">
+    <p class="min-sec-title">Search Your Record:</p>
+    <div class="form-wrap">
+        <%- include('../search/details.ejs') %> <%- include('../search/dc.ejs')
+        %> <%- include('../search/shared.ejs') %>
+    </div>
+</div>

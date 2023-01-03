@@ -1,5 +1,22 @@
 <%- include('../partials/header.ejs') %>
 <section data-barba="container" data-barba-namespace="records">
-    <h1 class="section-title">Reports</h1>
+    <div class="container">
+        <div class="sec-title-wrap">
+            <h1 class="section-title">All record list</h1>
+        </div>
+        <div class="table-control">
+            <p class="min-sec-title">Search Your Record:</p>
+            <div class="btn-wrap">
+                <button data-btn-name="all" style="flex-shrink: 2;" class="active">
+                    All
+                </button>
+                <button data-btn-name="details">
+                    visys details
+                </button>
+                <button data-btn-name="dc">visys dc details</button>
+                <button data-btn-name="shared">visys shared details</button>
+            </div>
+        </div>
+    </div>
 </section>
 <%- include('../partials/footer.ejs') %>

@@ -1,5 +1,18 @@
 <%- include('../partials/header.ejs') %>
 <section data-barba="container" data-barba-namespace="edit">
-    <h1 class="section-title">Edit</h1>
+    <!-- control btns  -->
+    <div class="container">
+        
+        <!-- search box  -->
+        <%- include('../partials/components/searchBox.ejs', {title: 'Search and update your record:'}) %>
+        <!-- recent added  -->
+        <div class="recent-added">
+            <div>
+                <p class="section-title">Record list based on your search:</p>
+                <div class="card-list"></div>
+                <!-- details shared card  -->
+            </div>
+        </div>
+    </div>
 </section>
 <%- include('../partials/footer.ejs') %>
