@@ -1,28 +1,19 @@
 <%- include('../partials/header.ejs') %>
 <section data-barba="container" data-barba-namespace="insert">
     <!-- control btns  -->
+    <%- include('../partials/components/controlBtns.ejs') %> 
     <div class="container">
-        <div class="sec-title-wrap">
-            <h1 class="section-title">Insert</h1>
-        </div>
-        <div class="table-control">
-            <p class="min-sec-title">Select Record Container :</p>
-            <!-- button list  -->
-            <div class="btn-wrap">
-                <button data-btn-name="details" class="active">
-                    visys details
-                </button>
-                <button data-btn-name="dc">visys dc details</button>
-                <button data-btn-name="shared">visys shared details</button>
-            </div>
-        </div>
         <!-- data form  -->
         <div class="user-form">
             <p class="min-sec-title">Input your data:</p>
             <div class="form-wrap">
-                <%- include('../partials/forms/detailsForm.ejs') %> <%-
-                include('../partials/forms/detailsDcForm.ejs') %> <%-
-                include('../partials/forms/detailsSharedForm.ejs') %>
+                <% if (type === 'details') { %> 
+                    <%- include('../partials/forms/detailsForm.ejs') %> 
+                <% } else if (type === 'dc') { %> 
+                    <%- include('../partials/forms/detailsDcForm.ejs') %> 
+                <% } else if (type === 'shared') { %> 
+                    <%-  include('../partials/forms/detailsSharedForm.ejs') %>
+                <% } %> 
             </div>
         </div>
         <!-- recent added  -->

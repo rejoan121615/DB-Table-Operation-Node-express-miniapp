@@ -85,13 +85,15 @@ p {
   font-weight: 700;
 }
 
-.btn-lg, .submit-wrap input, .btn-outline, .input-wrap input, .table-control .btn-wrap button {
+.btn-lg, .submit-wrap input, .btn-outline, .input-wrap input, .table-control .btn-wrap button,
+.table-control .btn-wrap a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
 }
 
-.btn-lg, .submit-wrap input, .btn-outline, .input-wrap input, .table-control .btn-wrap button {
+.btn-lg, .submit-wrap input, .btn-outline, .input-wrap input, .table-control .btn-wrap button,
+.table-control .btn-wrap a {
   padding: 0px 45px;
   border-radius: 6px;
   background-color: #bc6c25;
@@ -102,7 +104,8 @@ p {
   font-size: 20px;
 }
 
-.btn-outline, .input-wrap input, .table-control .btn-wrap button {
+.btn-outline, .input-wrap input, .table-control .btn-wrap button,
+.table-control .btn-wrap a {
   background-color: #fefae0;
   border: 1px solid #bc6c25;
   color: #bc6c25;
@@ -184,12 +187,14 @@ main .container .btn-wrap {
   display: flex;
   column-gap: 20px;
 }
-.table-control .btn-wrap button {
+.table-control .btn-wrap button,
+.table-control .btn-wrap a {
   flex-basis: 33.3333333333%;
   cursor: pointer;
   height: 60px;
 }
-.table-control .btn-wrap button.active {
+.table-control .btn-wrap button.active,
+.table-control .btn-wrap a.active {
   background-color: #e09154;
   color: #fefae0;
 }
@@ -233,12 +238,6 @@ main .container .btn-wrap {
 
 .user-form {
   margin-top: 60px;
-}
-.user-form form {
-  display: none;
-}
-.user-form form.active {
-  display: block;
 }
 .user-form form .input-list {
   display: grid;

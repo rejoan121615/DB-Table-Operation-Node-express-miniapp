@@ -215,7 +215,8 @@ main {
     .btn-wrap {
         display: flex;
         column-gap: 20px;
-        button {
+        button,
+        a {
             @extend .btn-outline;
             flex-basis: (100% / 3);
             cursor: pointer;
@@ -289,10 +290,6 @@ main {
     @extend %grid-sidebar;
     margin-top: 60px;
     form {
-        display: none;
-        &.active {
-            display: block;
-        }
         .input-list {
             display: grid;
             grid-template-columns: repeat(3, 1fr);

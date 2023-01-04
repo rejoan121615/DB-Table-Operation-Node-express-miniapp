@@ -1,5 +1,7 @@
 <%- include('../partials/header.ejs') %>
 <section data-barba="container" data-barba-namespace="delete">
+    <!-- control btn  -->
+    <%- include('../partials/components/controlBtns.ejs', {type: type}) %> 
     <div class="container">
         <%- include('../partials/components/searchBox.ejs', {title: "Search and delete records"}) %>
     </div>

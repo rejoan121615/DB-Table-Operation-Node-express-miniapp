@@ -3,7 +3,7 @@ const bodyParser = require("body-parser");
 const path = require("path");
 const db = require("./db/db");
 // sync database model
-const DetailsModel = require('./model/DetailsModel');
+const DetailsModel = require("./model/DetailsModel");
 
 // routes
 const InsertRoute = require("./routes/insert.routes");
@@ -14,19 +14,19 @@ const AllRecordsRoute = require("./routes/allRecords.routes");
 // register package
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "/public")));
 app.set("views", "./view/pages");
 app.set("view engine", "ejs");
 
 // register route
 app.get("/", (req, res, next) => {
     // res.redirect("/insert");
-    res.render('Home')
+    res.render("Home");
 });
-app.use(InsertRoute);
-app.use(DeleteRoute);
-app.use(UpdateRoute);
-app.use(AllRecordsRoute);
+app.use("/insert", InsertRoute);
+app.use("/edit", UpdateRoute);
+app.use("/delete", DeleteRoute);
+app.use("/reports", AllRecordsRoute);
 
 // database
 db.sync({ alter: true })

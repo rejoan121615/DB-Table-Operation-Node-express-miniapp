@@ -1,13 +1,15 @@
-<div class="sec-title-wrap">
-    <h1 class="section-title"><%= title %> </h1>
-</div>
-<!-- control btn list  -->
-<%- include('./controlBtns.ejs', {title: 'Select record\'s container:'}) %> 
-<!-- data form  -->
-<div class="user-form">
-    <p class="min-sec-title">Search Your Record:</p>
-    <div class="form-wrap">
-        <%- include('../search/details.ejs') %> <%- include('../search/dc.ejs')
-        %> <%- include('../search/shared.ejs') %>
+<div class="container">
+    <!-- data form  -->
+    <div class="user-form">
+        <p class="min-sec-title">Search Your Record:</p>
+        <div class="form-wrap">
+            <% if (type === 'details') { %> 
+                <%- include('../search/details.ejs') %>
+            <% } else if (type === 'dc') { %> 
+                <%- include('../search/dc.ejs') %>
+            <% } else if (type === 'shared') { %> 
+                <%- include('../search/shared.ejs') %>
+            <% } %> 
+        </div>
     </div>
 </div>

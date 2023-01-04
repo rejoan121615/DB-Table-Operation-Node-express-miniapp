@@ -8,16 +8,15 @@
         <div class="table-control">
             <p class="min-sec-title">Select Record Container:</p>
             <div class="btn-wrap">
-                <button
-                    data-btn-name="all"
-                    style="flex-shrink: 2"
-                    class="active"
+                <a
+                href="all"
+                    style="flex-shrink: 2" class="<%= type === 'all' ? "active": "" %> "
                 >
                     All
-                </button>
-                <button data-btn-name="details">visys details</button>
-                <button data-btn-name="dc">visys dc details</button>
-                <button data-btn-name="shared">visys shared details</button>
+                </a>
+                <a href="details" class="<%= type === 'details' ? "active": "" %> ">visys details</a>
+                <a href="dc" class="<%= type === 'dc' ? "active": "" %> ">visys dc details</a>
+                <a href="shared" class="<%= type === 'shared' ? "active": "" %> ">visys shared details</a>
             </div>
         </div>
         <!-- all of your record list  -->

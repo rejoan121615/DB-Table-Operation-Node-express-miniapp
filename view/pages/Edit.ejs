@@ -1,10 +1,10 @@
 <%- include('../partials/header.ejs') %>
 <section data-barba="container" data-barba-namespace="edit">
     <!-- control btns  -->
+    <%- include('../partials/components/controlBtns.ejs', {type: type}) %> 
+    <!-- forms  -->
+    <%- include('../partials/components/searchBox.ejs', {type: type}) %> 
     <div class="container">
-        
-        <!-- search box  -->
-        <%- include('../partials/components/searchBox.ejs', {title: 'Search and update your record:'}) %>
         <!-- recent added  -->
         <div class="recent-added">
             <div>

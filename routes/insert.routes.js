@@ -3,12 +3,25 @@ const { Router } = require("express");
 const router = Router();
 
 // insert data
-router.get("/insert", (req, res, next) => {
-    res.render("insert");
+router.get("/", (req, res, next) => {
+    res.redirect("/insert/details");
 });
-router.post("/insert", (req, res, next) => {
-    console.log(req.body)
-    res.render("insert");
-});
+router.get('/details', (req, res, next) => {
+    res.render('insert', {
+        type: 'details'
+    })
+})
+router.get('/dc', (req, res, next) => {
+    res.render('insert', {
+        type: 'dc'
+    })
+})
+router.get('/shared', (req, res, next) => {
+    res.render('insert', {
+        type: 'shared'
+    })
+})
+
+
 
 module.exports = router;
