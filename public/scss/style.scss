@@ -387,3 +387,26 @@ main {
 .report-list {
     margin-top: 60px;
 }
+
+// alert
+.alert-box {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+    border-radius: 6px;
+    padding: 10px 14px;
+    background-color: $c-deep-org;
+    &.success {
+        background-color: green;
+    }
+    &.fail {
+        background-color: red;
+    }
+    p {
+        font-size: $f-lg;
+        color: $c-milk;
+        &::first-letter {
+            text-transform: uppercase;
+        }
+    }
+}
