@@ -1,5 +1,12 @@
 <%- include('../partials/header.ejs') %>
 <section data-barba="container" data-barba-namespace="insert">
+    <div class="container">
+        <% if (alert.status) { %> 
+            <div class=" alert-box <%= alert.style %>   ">
+                <p><%= alert.message %> </p>
+            </div>
+        <% } %> 
+    </div>
     <!-- control btns  -->
     <%- include('../partials/components/controlBtns.ejs') %> 
     <div class="container">
@@ -17,16 +24,24 @@
             </div>
         </div>
         <!-- recent added  -->
-        <div class="recent-added">
+        <% if (data.length) { %> 
+            <div class="recent-added">
             <div>
                 <p class="section-title">Most recent records:</p>
                 <div class="card-list">
-
+                    <% if (data.type === 'details') { %> 
+                    <h1>Details</h1>
+                    <% } else if (data.type === 'dc') { %> 
+                        <h1>Dc</h1>
+                    <% } else if (data.type === 'shared') { %> 
+                        <h1>Shared</h1>
+                    <% } %>
                 </div>
-
-                <!-- details shared card  -->
+                 
             </div>
         </div>
+        <% } %> 
+        
     </div>
 </section>
 <%- include('../partials/footer.ejs') %>

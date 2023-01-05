@@ -82,33 +82,41 @@ console.clear();
 // });
 
 // form validation
-// function FormValidation() {
-//     const activeForm = document.querySelector("form.active");
-//     const inputList = activeForm?.querySelectorAll(".input-list input");
-//     const submitBtn = activeForm?.querySelector("input[type=submit]");
-//     const btnTxt = submitBtn?.value;
+function FormValidation() {
+    const activeForm = document.querySelector("form");
+    const inputList = activeForm?.querySelectorAll(".input-list input");
+    const submitBtn = activeForm?.querySelector("input[type=submit]");
+    const btnTxt = submitBtn?.value;
 
-//     // check validation if not fil disable input
-//     function checkValidation() {
-//         const invalidInput = Array.from(inputList).filter((field) => {
-//             return !field.value.length;
-//         });
-//         if (!invalidInput.length) {
-//             submitBtn.disabled = false;
-//             submitBtn.value = btnTxt;
-//         } else {
-//             submitBtn.disabled = true;
-//             submitBtn.value = "Fill out the input first";
-//         }
-//     }
+    // check validation if not fil disable input
+    function checkValidation() {
+        const invalidInput = Array.from(inputList).filter((field) => {
+            return !field.value.length;
+        });
+        if (!invalidInput.length) {
+            submitBtn.disabled = false;
+            submitBtn.value = btnTxt;
+        } else {
+            submitBtn.disabled = true;
+            submitBtn.value = "Fill out the input first";
+        }
+    }
 
-//     checkValidation();
+    checkValidation();
 
-//     Array.from(inputList).map((input) => {
-//         input.onkeyup = function () {
-//             checkValidation();
-//         };
-//     });
-// }
+    Array.from(inputList).map((input) => {
+        input.onkeyup = function () {
+            checkValidation();
+        };
+    });
+}
 
-// FormValidation();
+FormValidation();
+
+// remove alert box
+const alertBox = document.querySelector(".alert-box");
+if (alertBox) {
+    setTimeout(() => {
+        alertBox.remove();
+    }, 2500);
+}

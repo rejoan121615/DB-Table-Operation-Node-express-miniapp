@@ -1,27 +1,14 @@
 const { Router } = require("express");
-// const DcDetailsModel = require("../model/DcDetailsModel");
 const router = Router();
+const { insertGet, insertPost } = require('../controllers/InsertController')
 
-// insert data
+// redirect root url
 router.get("/", (req, res, next) => {
     res.redirect("/insert/details");
 });
-router.get('/details', (req, res, next) => {
-    res.render('insert', {
-        type: 'details'
-    })
-})
-router.get('/dc', (req, res, next) => {
-    res.render('insert', {
-        type: 'dc'
-    })
-})
-router.get('/shared', (req, res, next) => {
-    res.render('insert', {
-        type: 'shared'
-    })
-})
 
+router.get("/:url", insertGet );
 
+router.post("/:url", insertPost);
 
 module.exports = router;

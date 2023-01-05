@@ -13,6 +13,12 @@ router.get('/dc', (req, res, next) => {
         type: 'dc'
     })
 })
+
+router.post('/dc', (req, res, next) => {
+    console.log(req.body);
+    next();
+})
+
 router.get('/details', (req, res, next) => {
     res.render('Delete', {
         type: 'details'

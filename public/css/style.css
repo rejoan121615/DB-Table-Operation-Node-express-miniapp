@@ -331,4 +331,26 @@ main .container .btn-wrap {
   margin-top: 60px;
 }
 
+.alert-box {
+  display: flex;
+  align-items: center;
+  margin-bottom: 25px;
+  border-radius: 6px;
+  padding: 10px 14px;
+  background-color: #bc6c25;
+}
+.alert-box.success {
+  background-color: green;
+}
+.alert-box.fail {
+  background-color: red;
+}
+.alert-box p {
+  font-size: 20px;
+  color: #fefae0;
+}
+.alert-box p::first-letter {
+  text-transform: uppercase;
+}
+
 /*# sourceMappingURL=style.css.map */

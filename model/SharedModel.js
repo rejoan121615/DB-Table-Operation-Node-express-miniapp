@@ -8,28 +8,52 @@ const SharedModel = db.define("visys_shared_details", {
         autoIncrement: true,
         allowNull: false,
     },
-    visys_dc_id: {
-        type: DataTypes.INTEGER,
+    visys_name: {
+        type: DataTypes.TEXT,
         allowNull: false,
     },
-    visys_dc_location: {
-        type: DataTypes.INTEGER,
+    visys_url: {
+        type: DataTypes.TEXT,
         allowNull: false,
     },
-    visys_dc_url: {
-        type: DataTypes.INTEGER,
+    visys_port: {
+        type: DataTypes.TEXT,
         allowNull: false,
     },
-    visys_dc_port: {
-        type: DataTypes.INTEGER,
+    visys_user_name: {
+        type: DataTypes.TEXT,
         allowNull: false,
     },
-    visys_dc_status: {
-        type: DataTypes.INTEGER,
+    visys_user_password: {
+        type: DataTypes.TEXT,
         allowNull: false,
     },
-    visys_dc_flag: {
-        type: DataTypes.INTEGER,
+    visys_flag: {
+        type: DataTypes.TEXT,
+        allowNull: false,
+    },
+    visys_shell_url: {
+        type: DataTypes.TEXT,
+        allowNull: false,
+    },
+    visys_attribute_01: {
+        type: DataTypes.TEXT,
+        allowNull: false,
+    },
+    visys_attribute_02: {
+        type: DataTypes.TEXT,
+        allowNull: false,
+    },
+    visys_attribute_03: {
+        type: DataTypes.TEXT,
+        allowNull: false,
+    },
+    visys_attribute_04: {
+        type: DataTypes.TEXT,
+        allowNull: false,
+    },
+    visys_attribute_05: {
+        type: DataTypes.TEXT,
         allowNull: false,
     },
 });
