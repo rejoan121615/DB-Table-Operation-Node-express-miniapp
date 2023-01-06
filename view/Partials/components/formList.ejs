@@ -1,0 +1,12 @@
+<div class="user-form">
+    <p class="min-sec-title">Fill with your data </p>
+    <div class="form-wrap">
+        <% if (type === 'details') { %>
+          <%- include('../forms/detailsForm.ejs', {data: data}) %>
+        <% } else if (type === 'dc') { %>
+          <%- include('../forms/detailsDcForm.ejs', {data: data}) %> 
+        <% } else if (type === 'shared') { %>
+          <%- include('../forms/detailsSharedForm.ejs', {data: data}) %> 
+        <% } %>
+    </div>
+</div>

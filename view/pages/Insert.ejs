@@ -1,28 +1,13 @@
 <%- include('../partials/header.ejs') %>
 <section data-barba="container" data-barba-namespace="insert">
-    <div class="container">
-        <% if (alert.status) { %> 
-            <div class=" alert-box <%= alert.style %>   ">
-                <p><%= alert.message %> </p>
-            </div>
-        <% } %> 
-    </div>
+    <%- include('../partials/components/alert.ejs', {...alert}) %> 
     <!-- control btns  -->
     <%- include('../partials/components/controlBtns.ejs') %> 
     <div class="container">
         <!-- data form  -->
-        <div class="user-form">
-            <p class="min-sec-title">Input your data:</p>
-            <div class="form-wrap">
-                <% if (type === 'details') { %> 
-                    <%- include('../partials/forms/detailsForm.ejs') %> 
-                <% } else if (type === 'dc') { %> 
-                    <%- include('../partials/forms/detailsDcForm.ejs') %> 
-                <% } else if (type === 'shared') { %> 
-                    <%-  include('../partials/forms/detailsSharedForm.ejs') %>
-                <% } %> 
-            </div>
-        </div>
+        <%- include('../partials/components/formList.ejs', {
+            type: type,
+        }) %> 
         <!-- recent added  -->
         <% if (data.length) { %> 
             <div class="recent-added">

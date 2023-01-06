@@ -1,18 +1,19 @@
 <%- include('../partials/header.ejs') %>
 <section data-barba="container" data-barba-namespace="edit">
+    <%- include('../partials/components/alert.ejs', {...alert}) %> 
     <!-- control btns  -->
     <%- include('../partials/components/controlBtns.ejs', {type: type}) %> 
     <!-- forms  -->
     <%- include('../partials/components/searchBox.ejs', {type: type}) %> 
-    <div class="container">
-        <!-- recent added  -->
-        <div class="recent-added">
-            <div>
-                <p class="section-title">Record list based on your search:</p>
-                <div class="card-list"></div>
-                <!-- details shared card  -->
-            </div>
-        </div>
+    <% if (data.length) { %> 
+    <!-- update your form with new data  -->
+    <div class="container" style="margin-top: 70px; margin-bottom: 40px;">
+        <p class="section-title">Update your record</p>
     </div>
+    <!-- forms  -->
+        <div class="container">
+            <%- include('../partials/components/formList.ejs', {type: type, data: data[0]}) %> 
+        </div>
+    <% } %> 
 </section>
 <%- include('../partials/footer.ejs') %>
