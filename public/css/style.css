@@ -77,6 +77,7 @@ p {
   text-align: center;
   font-size: 40px;
   color: #e09154;
+  text-transform: capitalize;
 }
 
 .min-sec-title {
@@ -371,6 +372,17 @@ main .container .btn-wrap {
 .action-list .action-btn.edit {
   background-color: green;
   margin-right: 10px;
+}
+
+.no-data-wrap {
+  margin-top: 60px;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  column-gap: 20px;
+}
+.no-data-wrap h1 {
+  margin-bottom: 30px;
 }
 
 /*# sourceMappingURL=style.css.map */

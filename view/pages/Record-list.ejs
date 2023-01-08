@@ -1,39 +1,44 @@
 <%- include('../partials/header.ejs') %>
 <section data-barba="container" data-barba-namespace="records">
     <div class="container">
-        <div class="sec-title-wrap">
-            <h1 class="section-title">All record list</h1>
-        </div>
+            <h1 class="section-title"> <%= type %> record list</h1>
         <!-- control button  -->
         <div class="table-control">
             <p class="min-sec-title">Select Record Container:</p>
             <div class="btn-wrap">
                 <a
-                href="all"
+                href="./all"
                     style="flex-shrink: 2" class="<%= type === 'all' ? "active": "" %> "
                 >
                     All
                 </a>
-                <a href="details" class="<%= type === 'details' ? "active": "" %> ">visys details</a>
-                <a href="dc" class="<%= type === 'dc' ? "active": "" %> ">visys dc details</a>
-                <a href="shared" class="<%= type === 'shared' ? "active": "" %> ">visys shared details</a>
+                <a href="./details" class="<%= type === 'details' ? "active": "" %> ">visys details</a>
+                <a href="./dc" class="<%= type === 'dc' ? "active": "" %> ">visys dc details</a>
+                <a href="./shared" class="<%= type === 'shared' ? "active": "" %> ">visys shared details</a>
             </div>
         </div>
         <!-- all of your record list  -->
-        <div class="card-list report-list">
-            <%- include('../partials/cards/detailsCard.ejs') %>
-            <%- include('../partials/cards/detailsCard.ejs') %>
-            <%- include('../partials/cards/detailsCard.ejs') %>
-            <%- include('../partials/cards/detailsCard.ejs') %>
-            <%- include('../partials/cards/detailsDcCard.ejs') %>
-            <%- include('../partials/cards/detailsDcCard.ejs') %>
-            <%- include('../partials/cards/detailsDcCard.ejs') %>
-            <%- include('../partials/cards/detailsDcCard.ejs') %>
-            <%- include('../partials/cards/detailsSharedCard.ejs') %>
-            <%- include('../partials/cards/detailsSharedCard.ejs') %>
-            <%- include('../partials/cards/detailsSharedCard.ejs') %>
-            <%- include('../partials/cards/detailsSharedCard.ejs') %>
-        </div>
+        <% if (data.length) { %> 
+            <div class="card-list report-list">
+                <% data.map((card) => {%> 
+                    <% if (card.type === 'details') { %> 
+                        <%- include('../partials/cards/detailsCard.ejs', {data: card, action: action}) %>
+                    <% } else if (card.type === 'dc') { %> 
+                        <%- include('../partials/cards/detailsDcCard.ejs', {data: card, action: action}) %>
+                    <% } else if (card.type === 'shared') { %> 
+                        <%- include('../partials/cards/detailsSharedCard.ejs', {data: card, action: action}) %>
+                    <% } %> 
+                <% }) %> 
+            </div>
+        <% } else { %>
+            <div class="no-data-wrap">
+                <h1 class="">No record avaialble</h1>
+                <div class="btn-wrap">
+                    <a href="/insert/<%= type %> " class="btn-lg">Input a record</a>
+                </div>
+            </div>
+        <% } %> 
+            
     </div>
 </section>
 <%- include('../partials/footer.ejs') %>
