@@ -343,6 +343,9 @@ main {
         padding: 20px;
         border-bottom: 1px solid $c-deep-org;
         background-color: #606c3869;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         p {
             font-size: $f-lg;
             text-align: center;
@@ -411,4 +414,23 @@ main {
     }
 }
 
+.action-list {
 
+    .action-btn {
+        width: 40px;
+        height: 40px;
+        border: none;
+        border-radius: 50%;
+        @extend %center;
+        img {
+            width: 20px;
+        }
+        &.delete {
+            background-color: tomato;
+        }
+        &.edit {
+            background-color: green;
+            margin-right: 10px;
+        }
+    }
+}

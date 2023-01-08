@@ -7,19 +7,30 @@ const {
     findSharedRecord,
 } = require("./CommonController");
 
-exports.updateGet = (req, res, next) => {
-    res.render("Edit", {
+exports.deleteGet = async (req, res, next) => {
+    const query = req.query.delete;
+    let alertObj = {
+        status: false,
+    };
+    if (Boolean(query)) {
+        alertObj.status = true;
+        alertObj.message = "Deleted successfully";
+        alertObj.style = "success";
+    }
+    res.render("Delete", {
         type: req.params.url,
-        alert: {
-            status: false,
-        },
+        alert: alertObj,
         data: [],
+        action: {
+            delete: false,
+            edit: false,
+        },
     });
 };
 
-exports.updatePost = async (req, res, next) => {
+exports.deletePost = async (req, res, next) => {
     const reqType = req.params.url;
-    // handle edit and search req differntly
+    // handle Delete and search req differntly
     if (Object.keys(req.body).length <= 3) {
         switch (reqType) {
             case "details":
@@ -32,7 +43,7 @@ exports.updatePost = async (req, res, next) => {
                     res.setHeader(
                         "Set-Cookie",
                         `record_Id=${detailsRecord.dataValues.id}`
-                    ).render("Edit", {
+                    ).render("Delete", {
                         type: reqType,
                         alert: {
                             status: true,
@@ -40,9 +51,13 @@ exports.updatePost = async (req, res, next) => {
                             style: "success",
                         },
                         data: [{ ...detailsRecord.dataValues }],
+                        action: {
+                            delete: true,
+                            edit: false,
+                        },
                     });
                 } else {
-                    res.render("Edit", {
+                    res.render("Delete", {
                         type: reqType,
                         alert: {
                             status: true,
@@ -50,6 +65,10 @@ exports.updatePost = async (req, res, next) => {
                             style: "fail",
                         },
                         data: [],
+                        action: {
+                            delete: false,
+                            edit: false,
+                        },
                     });
                 }
                 break;
@@ -60,7 +79,7 @@ exports.updatePost = async (req, res, next) => {
                     req.body.visys_dc_url
                 );
                 if (dcRecords !== null) {
-                    res.render("Edit", {
+                    res.render("Delete", {
                         type: reqType,
                         alert: {
                             status: true,
@@ -68,9 +87,13 @@ exports.updatePost = async (req, res, next) => {
                             style: "success",
                         },
                         data: [{ ...dcRecords.dataValues }],
+                        action: {
+                            delete: true,
+                            edit: false,
+                        },
                     });
                 } else {
-                    res.render("Edit", {
+                    res.render("Delete", {
                         type: reqType,
                         alert: {
                             status: true,
@@ -78,6 +101,10 @@ exports.updatePost = async (req, res, next) => {
                             style: "fail",
                         },
                         data: [],
+                        action: {
+                            delete: false,
+                            edit: false,
+                        },
                     });
                 }
                 break;
@@ -88,7 +115,7 @@ exports.updatePost = async (req, res, next) => {
                     req.body.visys_port
                 );
                 if (sharedRecord !== null) {
-                    res.render("Edit", {
+                    res.render("Delete", {
                         type: reqType,
                         alert: {
                             status: true,
@@ -96,9 +123,13 @@ exports.updatePost = async (req, res, next) => {
                             style: "success",
                         },
                         data: [{ ...sharedRecord.dataValues }],
+                        action: {
+                            delete: true,
+                            edit: false,
+                        },
                     });
                 } else {
-                    res.render("Edit", {
+                    res.render("Delete", {
                         type: reqType,
                         alert: {
                             status: true,
@@ -106,6 +137,10 @@ exports.updatePost = async (req, res, next) => {
                             style: "fail",
                         },
                         data: [],
+                        action: {
+                            delete: false,
+                            edit: false,
+                        },
                     });
                 }
                 break;
@@ -119,7 +154,7 @@ exports.updatePost = async (req, res, next) => {
                         where: { id: req.cookies.record_Id },
                     }
                 );
-                res.render("Edit", {
+                res.render("Delete", {
                     type: reqType,
                     alert: {
                         status: true,
@@ -127,6 +162,10 @@ exports.updatePost = async (req, res, next) => {
                         style: "success",
                     },
                     data: [],
+                    action: {
+                        delete: true,
+                        edit: false,
+                    },
                 });
 
                 break;
@@ -137,7 +176,7 @@ exports.updatePost = async (req, res, next) => {
                         where: { id: req.cookies.record_Id },
                     }
                 );
-                res.render("Edit", {
+                res.render("Delete", {
                     type: reqType,
                     alert: {
                         status: true,
@@ -145,6 +184,10 @@ exports.updatePost = async (req, res, next) => {
                         style: "success",
                     },
                     data: [],
+                    action: {
+                        delete: true,
+                        edit: false,
+                    },
                 });
                 break;
             case "shared":
@@ -154,7 +197,7 @@ exports.updatePost = async (req, res, next) => {
                         where: { id: req.cookies.record_Id },
                     }
                 );
-                res.render("Edit", {
+                res.render("Delete", {
                     type: reqType,
                     alert: {
                         status: true,
@@ -162,9 +205,83 @@ exports.updatePost = async (req, res, next) => {
                         style: "success",
                     },
                     data: [],
+                    action: {
+                        delete: false,
+                        edit: false,
+                    },
                 });
 
                 break;
         }
+    }
+};
+
+exports.singleRecordDeleteGet = async (req, res, next) => {
+    const reqType = req.params.url;
+    const postId = req.params.postId;
+
+    // if delete then redirect
+
+    switch (reqType) {
+        case "details":
+            const findDetailsRecord = await DetailsModel.findByPk(postId);
+            const deleteDetails = await findDetailsRecord.destroy();
+            if (deleteDetails) {
+                res.redirect(`/delete/${reqType}/?delete=true`);
+                // res.render("Delete", {
+                //     type: reqType,
+                //     alert: {
+                //         status: true,
+                //         message: "Record Deleted successfully",
+                //         style: "success",
+                //     },
+                //     data: [],
+                //     action: {
+                //         delete: false,
+                //         edit: false,
+                //     },
+                // });
+            }
+            break;
+        case "dc":
+            const findDcRecord = await DcModel.findByPk(postId);
+            const deleteDC = await findDcRecord.destroy();
+            if (deleteDC) {
+                res.redirect(`/delete/${reqType}/?delete=true`);
+                // res.render("Delete", {
+                //     type: reqType,
+                //     alert: {
+                //         status: true,
+                //         message: "Record Deleted successfully",
+                //         style: "success",
+                //     },
+                //     data: [],
+                //     action: {
+                //         delete: false,
+                //         edit: false,
+                //     },
+                // });
+            }
+            break;
+        case "shared":
+            const findSharedRecord = await SharedModel.findByPk(postId);
+            const deleteShared = await findSharedRecord.destroy();
+            if (deleteShared) {
+                res.redirect(`/delete/${reqType}/?delete=true`);
+                // res.render("Delete", {
+                //     type: reqType,
+                //     alert: {
+                //         status: true,
+                //         message: "Record Deleted successfully",
+                //         style: "success",
+                //     },
+                //     data: [],
+                //     action: {
+                //         delete: false,
+                //         edit: false,
+                //     },
+                // });
+            }
+            break;
     }
 };

@@ -2,7 +2,7 @@
 <section data-barba="container" data-barba-namespace="insert">
     <%- include('../partials/components/alert.ejs', {...alert}) %> 
     <!-- control btns  -->
-    <%- include('../partials/components/controlBtns.ejs') %> 
+    <%- include('../partials/components/controlBtns.ejs', {type: type}) %> 
     <div class="container">
         <!-- data form  -->
         <%- include('../partials/components/formList.ejs', {

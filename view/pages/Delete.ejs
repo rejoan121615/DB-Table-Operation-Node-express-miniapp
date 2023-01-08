@@ -1,9 +1,30 @@
 <%- include('../partials/header.ejs') %>
 <section data-barba="container" data-barba-namespace="delete">
-    <!-- control btn  -->
-    <%- include('../partials/components/controlBtns.ejs', {type: type}) %> 
-    <div class="container">
-        <%- include('../partials/components/searchBox.ejs', {title: "Search and delete records"}) %>
+    <%- include('../partials/components/alert.ejs', {...alert}) %>
+    <!-- control btns  -->
+    <%- include('../partials/components/controlBtns.ejs', {type: type}) %>
+    <!-- forms  -->
+    <%- include('../partials/components/searchBox.ejs', {type: type}) %>
+    <!-- record list  -->
+    <% if (data.length) { %>
+    <!-- update your form with new data  -->
+    <div class="container" style="margin-top: 70px; margin-bottom: 40px">
+        <p class="section-title">Your searched record</p>
     </div>
+    <!-- data card  -->
+    <div class="container">
+        <div class="card-list">
+            <% data.map((item, index) => { %> 
+                <% if (type === 'details') { %>
+                <%- include('../partials/cards/detailsCard.ejs', {data: item, action: action, type: type}) %> 
+                <% } else if (type === 'dc') { %>
+                <%- include('../partials/cards/detailsDcCard.ejs', {data: item, action: action, type: type}) %> 
+                <% } else if (type === 'shared') { %>
+                <%- include('../partials/cards/detailsSharedCard.ejs', {data: item, action: action, type: type}) %> 
+                <% } %>
+            <% }) %> 
+        </div>
+    </div>
+    <% } %>
 </section>
 <%- include('../partials/footer.ejs') %>

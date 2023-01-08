@@ -9,12 +9,7 @@ router.get("/", (req, res, next) => {
 });
 
 router.get("/:url", updateGet);
-// router.get('/shared', (req, res, next) => {
-//     res.render("Edit", { type: "shared" });
-// })
-// router.get('/dc', (req, res, next) => {
-//     res.render('Edit', {type: 'dc'})
-// })
+
 
 router.post('/:url', updatePost);
 

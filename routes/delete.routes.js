@@ -1,34 +1,20 @@
 const { Router } = require("express");
-const DcDetailsModel = require("../model/DcModel");
+const {
+    deleteGet,
+    deletePost,
+    singleRecordDeleteGet,
+} = require("../controllers/deleteController");
 const router = Router();
 
 // search data
 router.get("/", (req, res, next) => {
-    res.redirect('/delete/dc');
+    res.redirect("/delete/details");
 });
 
+router.get("/:url", deleteGet);
 
-router.get('/dc', (req, res, next) => {
-    res.render('Delete', {
-        type: 'dc'
-    })
-})
+router.post("/:url", deletePost);
 
-router.post('/dc', (req, res, next) => {
-    console.log(req.body);
-    next();
-})
-
-router.get('/details', (req, res, next) => {
-    res.render('Delete', {
-        type: 'details'
-    })
-})
-router.get('/shared', (req, res, next) => {
-    res.render('Delete', {
-        type: 'shared'
-    })
-})
-
+router.get("/:url/:postId", singleRecordDeleteGet);
 
 module.exports = router;

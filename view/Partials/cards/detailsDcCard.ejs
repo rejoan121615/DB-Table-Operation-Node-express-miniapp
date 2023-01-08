@@ -1,34 +1,42 @@
 <div data-card-name="dc" class="card">
     <div class="c-head">
-        <p>Type: Visys Details</p>
+        <p>Type: Visys Dc Details</p>
+        <div class="action-list">
+            <% if (action.edit) { %>
+            <a href="dc/<%= data.id %> " class="edit action-btn">
+                <img src="/icons/write.png" alt="delete icon" />
+            </a>
+            <% } %> <% if (action.delete) { %>
+            <a href="/delete/dc/<%= data.id %> " class="delete action-btn">
+                <img src="/icons/bin.png" alt="delete icon" />
+            </a>
+            <% } %>
+        </div>
     </div>
     <div class="c-body">
         <div class="c-item">
-            <p>Name:</p>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </p>
+            <p>Id:</p>
+            <p><%= data.visys_dc_id %></p>
         </div>
         <div class="c-item">
             <p>Url:</p>
-            <p>https://google.com</p>
+            <p><%= data.visys_dc_url %></p>
         </div>
         <div class="c-item">
             <p>Port:</p>
-            <p>8524522</p>
+            <p><%= data.visys_dc_port %></p>
         </div>
         <div class="c-item">
-            <p>user name:</p>
-            <p>rejoan121615</p>
+            <p>Location:</p>
+            <p><%= data.visys_dc_location %></p>
         </div>
         <div class="c-item">
-            <p>password:</p>
-            <p>dsfadsgeet</p>
+            <p>Status:</p>
+            <p><%= data.visys_dc_status %></p>
         </div>
         <div class="c-item">
-            <p>flag:</p>
-            <p>bangladesh</p>
+            <p>Flag:</p>
+            <p><%= data.visys_dc_flag %></p>
         </div>
     </div>
 </div>

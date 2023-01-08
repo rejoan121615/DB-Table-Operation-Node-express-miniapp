@@ -85,7 +85,7 @@ p {
   font-weight: 700;
 }
 
-.btn-lg, .submit-wrap input, .btn-outline, .input-wrap input, .table-control .btn-wrap button,
+.action-list .action-btn, .btn-lg, .submit-wrap input, .btn-outline, .input-wrap input, .table-control .btn-wrap button,
 .table-control .btn-wrap a {
   display: inline-flex;
   align-items: center;
@@ -289,6 +289,9 @@ main .container .btn-wrap {
   padding: 20px;
   border-bottom: 1px solid #bc6c25;
   background-color: rgba(96, 108, 56, 0.4117647059);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .card .c-head p {
   font-size: 20px;
@@ -351,6 +354,23 @@ main .container .btn-wrap {
 }
 .alert-box p::first-letter {
   text-transform: uppercase;
+}
+
+.action-list .action-btn {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+}
+.action-list .action-btn img {
+  width: 20px;
+}
+.action-list .action-btn.delete {
+  background-color: tomato;
+}
+.action-list .action-btn.edit {
+  background-color: green;
+  margin-right: 10px;
 }
 
 /*# sourceMappingURL=style.css.map */
